@@ -74,3 +74,51 @@ Docker Hub: repositorio con descripción e imagen.
 
 Swagger de la API en http://localhost:8082/swagger-ui/index.html.
 
+
+
+
+
+\## Evidencias
+
+
+
+\### 1. Imágenes locales (docker images)
+
+!\[docker images](capturas/01-docker-images.png)
+
+
+
+\### 2. Contenedores en ejecución (docker ps)
+
+!\[docker ps](capturas/02-docker-ps.png)
+
+
+
+\### 3. SonarQube: análisis del proyecto
+
+!\[SonarQube análisis](capturas/03-sonarqube-analisis.png)
+
+
+
+\### 4. SonarQube: webhook hacia Jenkins
+
+!\[SonarQube webhook](capturas/04-sonarqube-webhook.png)
+
+
+
+\### 5. Jenkins: Stage View en verde
+
+!\[Jenkins Stage View](capturas/05-jenkins-stage-view.png)
+
+
+
+\### 6. Docker Hub: repositorio con descripción
+
+!\[Docker Hub](capturas/06-dockerhub.png)
+
+
+
+\### 7. API en Swagger
+
+!\[Swagger](capturas/07-swagger.png)
+
