@@ -34,5 +34,69 @@
 
 5\. \*\*Distribución:\*\* tras superar el Quality Gate, el pipeline construyó y subió la imagen a Docker Hub. La ejecución #9 terminó en verde.
 
-6\. \*\*Verificación:\*\* se descargó la imagen desde Docker Hub y se ejecutó en un contenedor conectado
+6\. \*\*Verificación:\*\* se descargó la imagen desde Docker Hub y se ejecutó en un contenedor conectado a una base de datos PostgreSQL 16, en la red `devops-net`. La API responde en Swagger.
+
+
+
+\## Problemas encontrados y solución
+
+
+
+\- \*\*Permiso de ejecución de `mvnw`:\*\* Git no guardaba el permiso de ejecución. Se corrigió con `git update-index --chmod=+x mvnw`.
+
+\- \*\*Conexión entre contenedores:\*\* los contenedores del agente Docker no estaban en la red de Jenkins y SonarQube. Se agregó `--network devops-net` a los agentes.
+
+\- \*\*Clave del proyecto en SonarQube:\*\* no coincidía con la del Jenkinsfile. Se corrigió la variable `SONAR\_PROJECT\_KEY`.
+
+\- \*\*Webhook bloqueado:\*\* SonarQube no permitía webhooks a direcciones privadas. Se desactivó \*Enable local webhooks validation\* (solo para el entorno de laboratorio).
+
+\- \*\*Puerto de la aplicación:\*\* la aplicación escucha en el puerto 8096, no en el 8080. Se mapeó el 8082 del host al 8096 del contenedor.
+
+\- \*\*Base de datos:\*\* la aplicación necesitaba PostgreSQL. Se levantó un contenedor `postgres:16` en la misma red y se pasaron las variables `DB\_HOST`, `DB\_USERNAME` y `DB\_PASSWORD`.
+
+
+
+\## Evidencias
+
+
+
+\### 1. Imágenes locales (docker images)
+
+!\[docker images](capturas/01-docker-images.png)
+
+
+
+\### 2. Contenedores en ejecución (docker ps)
+
+!\[docker ps](capturas/02-docker-ps.png)
+
+
+
+\### 3. SonarQube: análisis del proyecto
+
+!\[SonarQube análisis](capturas/03-sonarqube-analisis.png)
+
+
+
+\### 4. SonarQube: webhook hacia Jenkins
+
+!\[SonarQube webhook](capturas/04-sonarqube-webhook.png)
+
+
+
+\### 5. Jenkins: Stage View en verde
+
+!\[Jenkins Stage View](capturas/05-jenkins-stage-view.png)
+
+
+
+\### 6. Docker Hub: repositorio con descripción
+
+!\[Docker Hub](capturas/06-dockerhub.png)
+
+
+
+\### 7. API en Swagger
+
+!\[Swagger](capturas/07-swagger.png)
 
