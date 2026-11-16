@@ -26,7 +26,7 @@ pipeline {
             agent {
                 docker {
                     image 'eclipse-temurin:26-jdk'
-                    args '-u root'
+                    args '-u root --network devops-net'
                 }
             }
             steps {
