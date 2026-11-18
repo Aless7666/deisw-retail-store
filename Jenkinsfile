@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         DOCKERHUB_USER   = 'aless2212'
-        CODIGO           = 'U202215537'
-        SONAR_PROJECT_KEY = 'retail-storeretail-store-U202215537'
-        IMAGE            = "${DOCKERHUB_USER}/retail-store-${CODIGO.toLowerCase()}"
+        CODIGO            = 'PRACTICA03'
+	SONAR_PROJECT_KEY = 'menuuni-practica03'
+	IMAGE             = "${DOCKERHUB_USER}/menuuni-${CODIGO.toLowerCase()}"
         TAG              = "${env.BUILD_NUMBER}"
     }
 
