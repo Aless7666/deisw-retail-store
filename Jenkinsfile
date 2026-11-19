@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_USER   = 'aless2212'
-        CODIGO            = 'PRACTICA03'
-	SONAR_PROJECT_KEY = 'menuuni-practica03'
-	IMAGE             = "${DOCKERHUB_USER}/menuuni-${CODIGO.toLowerCase()}"
-        TAG              = "${env.BUILD_NUMBER}"
+        DOCKERHUB_USER    = 'aless2212'
+        CODIGO            = 'u202215537'
+        SONAR_PROJECT_KEY = 'retail-store-u202215537'
+        IMAGE             = "${DOCKERHUB_USER}/retail-store-${CODIGO}"
+        TAG               = "${env.BUILD_NUMBER}"
     }
 
     stages {
